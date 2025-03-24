@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM</title>
+    <script>
+        function verifierReponses() {
+            let score = 0;
+            const reponsesCorrectes = {
+                "q1": "Liquide",
+                "q2": "Mercure",
+                "q3": "Oxygène",
+                "q4": "Volt",
+                "q5": "Azote"
+            };
+
+            for (let key in reponsesCorrectes) {
+                const reponseUtilisateur = document.querySelector(`input[name="${key}"]:checked`);
+                if (reponseUtilisateur && reponseUtilisateur.value === reponsesCorrectes[key]) {
+                    score++;
+                }
+            }
+
+            document.getElementById("resultat").innerHTML = `Votre score : ${score}/5`;
+        }
+    </script>
+</head>
+<body>
+    <h2>QCM - Répondez aux questions :</h2>
+    <form id="qcm">
+        <p><strong>1. Quel est l'état principal de l'eau dans un nuage ?</strong></p>
+        <input type="radio" name="q1" value="Liquide"> Liquide<br>
+        <input type="radio" name="q1" value="Solide"> Solide<br>
+        <input type="radio" name="q1" value="Gazeux"> Gazeux<br>
+
+        <p><strong>2. Quelle est la planète la plus proche du Soleil ?</strong></p>
+        <input type="radio" name="q2" value="Vénus"> Vénus<br>
+        <input type="radio" name="q2" value="Mars"> Mars<br>
+        <input type="radio" name="q2" value="Mercure"> Mercure<br>
+
+        <p><strong>3. Quel gaz est nécessaire à la combustion ?</strong></p>
+        <input type="radio" name="q3" value="Oxygène"> Oxygène<br>
+        <input type="radio" name="q3" value="Azote"> Azote<br>
+        <input type="radio" name="q3" value="Dioxyde de carbone"> Dioxyde de carbone<br>
+
+        <p><strong>4. Quelle est l'unité de mesure de la tension électrique ?</strong></p>
+        <input type="radio" name="q4" value="Volt"> Volt<br>
+        <input type="radio" name="q4" value="Watt"> Watt<br>
+        <input type="radio" name="q4" value="Ampère"> Ampère<br>
+
+        <p><strong>5. Quel est le principal constituant de l'air ?</strong></p>
+        <input type="radio" name="q5" value="Oxygène"> Oxygène<br>
+        <input type="radio" name="q5" value="Azote"> Azote<br>
+        <input type="radio" name="q5" value="Dioxyde de carbone"> Dioxyde de carbone<br>
+
+        <br>
+        <button type="button" onclick="verifierReponses()">Vérifier les réponses</button>
+    </form>
+
+    <h3 id="resultat"></h3>
+</body>
+</html>
